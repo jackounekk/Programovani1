@@ -19,7 +19,7 @@ if(teplota<=20):
     print("Je zima")
 else:
     print("Je teplo")"""
-
+xsdads
 """cislo=int(input("Zadejte číslo:"))
 
 if cislo<10:
