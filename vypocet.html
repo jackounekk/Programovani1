@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kruh</title>
+</head>
+<body>
+
+    <h2>Výpočet kruhu</h2>
+
+    <input type="number" id="polomer" placeholder="Zadej poloměr">
+    <button onclick="spocitejkruh()">Spočítat</button>
+
+    <p>Obvod: <span id="obvodk">0</span></p>
+    <p>Obsah: <span id="obsahk">0</span></p>
+
+    <h2>Obdelnik</h2>
+    <input type="number" id="astrana" placeholder="Strana A">
+    <input type="number" id="bstrana" placeholder="Strana B">
+    <button onclick="spocitejobdelnik()">Spočítat</button>
+    <p>Obvod: <span id="obvodo">0</span></p>
+    <p>Obsah: <span id="obsaho">0</span></p>
+
+    <script>
+    function spocitejkruh() {
+        var r = document.getElementById('polomer').value;
+
+        var obvod = 2 * 3.14159 * r;
+        var obsah = 3.14159 * r * r;
+
+        document.getElementById('obvodk').innerText = obvod;
+        document.getElementById('obsahk').innerText = obsah;
+    }
+    function spocitejobdelnik(){
+        var a=document.getElementById("astrana").value;
+        var b=document.getElementById("bstrana").value;
+
+        var obvodo=2*(a+b)
+        var obsaho=a*b
+
+        document.getElementById('obvodo').innerText = obvodo;
+        document.getElementById('obsaho').innerText = obsaho;
+    }
+    </script>
+
+</body>
+</html>
