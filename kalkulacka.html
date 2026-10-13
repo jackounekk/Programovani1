@@ -1,0 +1,99 @@
+<html>
+    <style>
+         .tlacitka {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 5px; 
+        }
+        .kalkulacka {
+            width: 220px; 
+            margin: 50px auto;
+        }
+        button {
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input#displej {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: right;
+        }
+    </style>
+
+<body>
+    <div class="kalkulacka">
+        <input type="text" id="displej" disabled>
+        <div class="tlacitka">
+            <button onclick="pridej('7')">7</button>
+            <button onclick="pridej('8')">8</button>
+            <button onclick="pridej('9')">9</button>
+            <button onclick="pridej('/')">/</button>
+
+            <button onclick="pridej('4')">4</button>
+            <button onclick="pridej('5')">5</button>
+            <button onclick="pridej('6')">6</button>
+            <button onclick="pridej('*')">*</button>
+
+
+            <button onclick="pridej('1')">1</button>
+            <button onclick="pridej('2')">2</button>
+            <button onclick="pridej('3')">3</button>
+            <button onclick="pridej('-')">-</button>
+
+            <button onclick="vymaz()">C</button>
+            <button onclick="pridej('0')">0</button>
+            <button onclick="spocitej()">=</button>
+            <button onclick="pridej('+')">+</button>
+        </div>
+
+    </div>
+    <script>
+        const displej = document.getElementById('displej');
+    
+        function pridej(hodnota) {
+            displej.value += hodnota;
+        }
+    
+        function vymaz() {
+            displej.value = '';
+        }
+    
+        function spocitej() {
+            const text = displej.value;
+            let znamenko = '';
+            
+            if (text.includes('+')) znamenko = '+';
+            else if (text.includes('-')) znamenko = '-';
+            else if (text.includes('*')) znamenko = '*';
+            else if (text.includes('/')) znamenko = '/';
+    
+            if (!znamenko) return;
+    
+            const casti = text.split(znamenko);
+            const a = parseFloat(casti[0]);
+            const b = parseFloat(casti[1]);
+            let vysledek;
+    
+            switch(znamenko) {
+                case '+': vysledek = a + b; break;
+                case '-': vysledek = a - b; break;
+                case '*': vysledek = a * b; break;
+                case '/': vysledek = b === 0 ? 'Chyba' : a / b; break;
+            }
+            
+            displej.value = vysledek;
+        }
+    </script>
+    </body>
+    </html>
+
+    
+
+
+
+
+
+</html>
